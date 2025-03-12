@@ -13,8 +13,6 @@ from input_CMT_dataset import create_pvrp_problem
 from qubo_helper_drone_schedule import Qubo
 from QiskitSolversDroneSchedule import solve_qubo
 import numpy as np
-from qubo_helper import Qubo
-from QiskitSolvers import solve_qubo
 import math
 
 # Drone Scheduler Class
