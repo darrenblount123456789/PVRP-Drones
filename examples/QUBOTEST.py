@@ -35,7 +35,7 @@ class DroneQUBOScheduler:
         binary_vars_per_drone = math.ceil(math.log2(self.num_drones))  
         x = {i: [f"x_{i}_{b}" for b in range(binary_vars_per_drone)] for i in range(self.num_routes)}
 
-        print(f"🔹 Debug: x dictionary keys = {list(x.keys())[:10]} ...")
+        print(f" Debug: x dictionary keys = {list(x.keys())[:10]} ...")
 
         ###  **Step 2: Assign Each Route Exactly Once**
         constraint_penalty = 500 * max(self.num_routes, self.num_drones)  
@@ -154,19 +154,19 @@ if __name__ == "__main__":
             drone_assignments[drone].append(routes[route])  # Ensure correct mapping
 
         #  **Step 2: Print Drone Scheduling Results**
-        print("\n🛠 **Drone Scheduling Results:**")
+        print("\n **Drone Scheduling Results:**")
         for drone, assigned_routes in drone_assignments.items():
             total_load = sum(
                 sum(problem.costs[route[i]][route[i+1]] for i in range(len(route)-1)) 
                 for route in assigned_routes
             )
-            print(f"🚁 **Drone {drone}:** Routes {assigned_routes}, **Total Load = {total_load}**")
+            print(f" **Drone {drone}:** Routes {assigned_routes}, **Total Load = {total_load}**")
 
         #  **Step 3: Track total assigned routes**
         total_routes = sum(len(routes) for routes in drone_assignments.values())
-        print(f"\n📊 **Total Routes Assigned in Iteration 1: {total_routes}**")
+        print(f"\n **Total Routes Assigned in Iteration 1: {total_routes}**")
 
-        print(f"\n✅ **Completed Runs for {num_drones} Drones** ✅\n")
+        print(f"\n**Completed Runs for {num_drones} Drones** \n")
 
 
 
